@@ -142,15 +142,6 @@
   .contact-list{list-style:none; padding:0; margin:0;}
   .contact-list li{margin-bottom:10px; font-size:15px;}
   .contact-list span{color:var(--fog); font-family:var(--font-mono); font-size:12px; display:block;}
-  form.contact-form{margin-top:var(--space-3); display:grid; gap:var(--space-2); max-width:480px;}
-  form.contact-form label{font-size:13px; color:var(--fog); display:block; margin-bottom:4px;}
-  form.contact-form input, form.contact-form textarea{
-    width:100%; background:var(--slate); border:1px solid var(--slate-line); color:var(--paper);
-    padding:10px 12px; border-radius:var(--radius); font-family:var(--font-body); font-size:14px;
-  }
-  form.contact-form input:focus, form.contact-form textarea:focus{border-color:var(--wire); outline:none;}
-  .form-note{font-size:12px; color:var(--fog); margin-top:var(--space-1);}
-
   footer{padding:var(--space-4) 0; }
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-2);}
   footer p{margin:0; font-size:13px;}
@@ -194,7 +185,7 @@
       <p class="role">Cybersecurity Analyst — Melbourne, VIC</p>
       <p class="value">4+ years' experience supporting SOC monitoring, incident triage and threat detection across enterprise environments for Australian and international customers, working across SIEM, EDR, IDS and vulnerability management platforms.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://drive.google.com/file/d/1EnhSQrg-T7stNBGtFPamLkE1k2ENDTsZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download CV</a>
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1EnhSQrg-T7stNBGtFPamLkE1k2ENDTsZ/view" target="_blank" rel="noopener noreferrer">Download CV</a>
         <a class="btn btn-secondary" href="#contact">Contact Me</a>
         <a class="btn btn-secondary" href="https://linkedin.com/in/sharmanivie" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
@@ -423,23 +414,6 @@
         <li><span>LinkedIn</span><a href="https://linkedin.com/in/sharmanivie" target="_blank" rel="noopener noreferrer">linkedin.com/in/sharmanivie</a></li>
         <li><span>Credly</span><a href="https://credly.com/users/nivie" target="_blank" rel="noopener noreferrer">credly.com/users/nivie</a></li>
       </ul>
-
-      <form class="contact-form" onsubmit="return handleContactSubmit(event)">
-        <div>
-          <label for="cf-name">Name</label>
-          <input id="cf-name" name="name" type="text" required>
-        </div>
-        <div>
-          <label for="cf-email">Your email</label>
-          <input id="cf-email" name="email" type="email" required>
-        </div>
-        <div>
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="justify-self:start;">Send message</button>
-        <p class="form-note" id="cf-status" role="status">This form is a placeholder. Connect it to a form service (e.g. Formspree) or replace it with a mailto link before publishing.</p>
-      </form>
     </div>
   </section>
 
@@ -458,13 +432,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  function handleContactSubmit(e){
-    e.preventDefault();
-    var status = document.getElementById('cf-status');
-    status.textContent = 'This is a placeholder form — no message was sent. Replace with a real form handler before publishing.';
-    return false;
-  }
 </script>
 
 </body>
