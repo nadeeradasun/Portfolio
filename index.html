@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nivedita Sharma — Cybersecurity Analyst</title>
+<style>
+  :root{
+    --ink:#121820;
+    --slate:#1E2733;
+    --slate-line:#2C3846;
+    --fog:#8B96A3;
+    --paper:#EDEFF2;
+    --amber:#E8A33D;
+    --wire:#5B8AA6;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 40px;
+    --space-5: 64px;
+    --radius: 3px;
+    --maxw: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--wire);}
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+  img{max-width:100%;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-3);}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.02em;
+    color:var(--wire);
+    margin:0 0 var(--space-1) 0;
+  }
+  section{padding:var(--space-5) 0; border-bottom:1px solid var(--slate-line);}
+  section:last-of-type{border-bottom:none;}
+  h1,h2,h3{font-weight:600; margin:0; color:var(--paper);}
+  h2{font-size:26px; margin-bottom:var(--space-3);}
+  p{color:var(--fog); margin:0 0 var(--space-2) 0;}
+  .meta{font-family:var(--font-mono); font-size:13px; color:var(--fog);}
+
+  /* Nav */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(18,24,32,0.94);
+    border-bottom:1px solid var(--slate-line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:var(--space-2); padding-bottom:var(--space-2);
+    flex-wrap:wrap; gap:var(--space-2);
+  }
+  nav .brand{font-weight:600; color:var(--paper); text-decoration:none; font-size:16px;}
+  nav ul{list-style:none; display:flex; gap:var(--space-3); margin:0; padding:0; flex-wrap:wrap;}
+  nav a{color:var(--fog); text-decoration:none; font-size:14px;}
+  nav a:hover{color:var(--paper);}
+
+  /* Hero */
+  .hero{padding-top:var(--space-5); padding-bottom:var(--space-5);}
+  .hero h1{font-size:clamp(32px, 5vw, 48px); line-height:1.15; max-width:14ch;}
+  .hero .role{font-family:var(--font-mono); color:var(--amber); font-size:16px; margin-top:var(--space-2);}
+  .hero .value{max-width:58ch; font-size:17px; margin-top:var(--space-2);}
+  .cta-row{display:flex; gap:var(--space-2); flex-wrap:wrap; margin-top:var(--space-3);}
+  .btn{
+    display:inline-block; padding:12px 20px; border-radius:var(--radius);
+    text-decoration:none; font-size:14px; font-weight:600;
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--amber); color:var(--ink);}
+  .btn-primary:hover{background:#f0b45a;}
+  .btn-secondary{background:transparent; color:var(--paper); border-color:var(--slate-line);}
+  .btn-secondary:hover{border-color:var(--wire); color:var(--wire);}
+
+  /* Skills */
+  .skill-group{margin-bottom:var(--space-3);}
+  .skill-group h3{font-size:15px; color:var(--wire); margin-bottom:var(--space-1);}
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--font-mono); font-size:12px; color:var(--paper);
+    background:var(--slate); border:1px solid var(--slate-line);
+    padding:5px 10px; border-radius:var(--radius);
+  }
+
+  /* Experience */
+  .job{margin-bottom:var(--space-4); padding-left:var(--space-3); border-left:2px solid var(--slate-line); position:relative;}
+  .job::before{
+    content:""; position:absolute; left:-6px; top:6px;
+    width:10px; height:10px; border-radius:50%; background:var(--amber);
+  }
+  .job h3{font-size:18px;}
+  .job .meta{margin:4px 0 var(--space-2) 0;}
+  .job ul{margin:0; padding-left:20px; color:var(--fog);}
+  .job li{margin-bottom:6px;}
+
+  .earlier-table{width:100%; border-collapse:collapse; font-size:14px;}
+  .earlier-table th, .earlier-table td{
+    text-align:left; padding:10px 12px; border-bottom:1px solid var(--slate-line);
+    vertical-align:top;
+  }
+  .earlier-table th{color:var(--wire); font-family:var(--font-mono); font-weight:400; font-size:12px;}
+  .earlier-table td{color:var(--fog);}
+
+  /* Projects */
+  .project{
+    background:var(--slate); border:1px solid var(--slate-line); border-radius:var(--radius);
+    padding:var(--space-3); margin-bottom:var(--space-2);
+  }
+  .project h3{font-size:17px; margin-bottom:6px;}
+  .project dl{display:grid; grid-template-columns:120px 1fr; gap:6px 12px; margin:var(--space-2) 0 0 0;}
+  .project dt{font-family:var(--font-mono); font-size:12px; color:var(--wire);}
+  .project dd{margin:0; color:var(--fog); font-size:14px;}
+
+  /* Education / certs */
+  .edu-item{margin-bottom:var(--space-2);}
+  .edu-item h3{font-size:16px;}
+  .cert-list{list-style:none; margin:0; padding:0; columns:2; column-gap:var(--space-3);}
+  .cert-list li{color:var(--fog); font-size:14px; margin-bottom:8px; break-inside:avoid;}
+  .cert-list li::before{content:"– "; color:var(--wire);}
+
+  /* Capabilities */
+  .cap-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:var(--space-3);}
+  .cap-card{border:1px solid var(--slate-line); border-radius:var(--radius); padding:var(--space-2);}
+  .cap-card h3{font-size:15px; margin-bottom:6px;}
+  .cap-card p{font-size:14px; margin:0;}
+
+  /* Contact */
+  .contact-list{list-style:none; padding:0; margin:0;}
+  .contact-list li{margin-bottom:10px; font-size:15px;}
+  .contact-list span{color:var(--fog); font-family:var(--font-mono); font-size:12px; display:block;}
+  form.contact-form{margin-top:var(--space-3); display:grid; gap:var(--space-2); max-width:480px;}
+  form.contact-form label{font-size:13px; color:var(--fog); display:block; margin-bottom:4px;}
+  form.contact-form input, form.contact-form textarea{
+    width:100%; background:var(--slate); border:1px solid var(--slate-line); color:var(--paper);
+    padding:10px 12px; border-radius:var(--radius); font-family:var(--font-body); font-size:14px;
+  }
+  form.contact-form input:focus, form.contact-form textarea:focus{border-color:var(--wire); outline:none;}
+  .form-note{font-size:12px; color:var(--fog); margin-top:var(--space-1);}
+
+  footer{padding:var(--space-4) 0; }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-2);}
+  footer p{margin:0; font-size:13px;}
+  footer a{color:var(--fog); text-decoration:none; margin-left:var(--space-2);}
+  footer a:hover{color:var(--paper);}
+
+  @media (max-width: 640px){
+    nav ul{gap:var(--space-2);}
+    .earlier-table{font-size:13px;}
+    .cert-list{columns:1;}
+    .project dl{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Primary">
+    <a href="#top" class="brand">Nivedita Sharma</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Nivedita Sharma</h1>
+      <p class="role">Cybersecurity Analyst — Melbourne, VIC</p>
+      <p class="value">4+ years' experience supporting SOC monitoring, incident triage and threat detection across enterprise environments for Australian and international customers, working across SIEM, EDR, IDS and vulnerability management platforms.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1EnhSQrg-T7stNBGtFPamLkE1k2ENDTsZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download CV</a>
+        <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        <a class="btn btn-secondary" href="https://linkedin.com/in/sharmanivie" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h2>Professional summary</h2>
+      <p>Cybersecurity Analyst with over four years' experience supporting Security Operations Centre (SOC) monitoring, incident triage and threat detection across enterprise environments for Australian and international customers. Skilled in analysing security telemetry across SIEM (ELK Stack), Endpoint Detection &amp; Response (EDR) and Intrusion Detection (IDS) platforms, with hands-on exposure to firewall and network security tools (PFsense, SonicWall) across Linux and Windows.</p>
+      <p>Experienced in vulnerability assessment (OpenVAS, Acunetix, Burp Suite, OWASP ZAP), malware and phishing investigation, root-cause analysis, and documenting remediation and operating procedures. Holds a Certificate IV in Cyber Security (Victoria University) and a Microsoft Cybersecurity Analyst Professional Certificate, underpinned by an engineering background and continuous professional development including AI prompt-injection and DLP security testing.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <p class="eyebrow">Skills</p>
+      <h2>Core cybersecurity &amp; technical skills</h2>
+
+      <div class="skill-group">
+        <h3>Security operations</h3>
+        <div class="tags">
+          <span class="tag">SOC monitoring</span>
+          <span class="tag">24×7 alert triage (L1/L2)</span>
+          <span class="tag">Incident lifecycle management</span>
+          <span class="tag">Incident response</span>
+          <span class="tag">Threat detection</span>
+          <span class="tag">Threat hunting</span>
+          <span class="tag">MITRE ATT&amp;CK</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>SIEM &amp; log analysis</h3>
+        <div class="tags">
+          <span class="tag">ELK Stack</span>
+          <span class="tag">Splunk (familiar)</span>
+          <span class="tag">Security telemetry &amp; log analysis</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Endpoint &amp; network security</h3>
+        <div class="tags">
+          <span class="tag">EDR (ThIRU MDR/EDR)</span>
+          <span class="tag">Custom Python-based EDR</span>
+          <span class="tag">IDS</span>
+          <span class="tag">PFsense</span>
+          <span class="tag">SonicWall</span>
+          <span class="tag">Wireshark</span>
+          <span class="tag">ModSecurity (WAF)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Vulnerability management &amp; security testing</h3>
+        <div class="tags">
+          <span class="tag">Vulnerability assessment</span>
+          <span class="tag">OpenVAS</span>
+          <span class="tag">Acunetix</span>
+          <span class="tag">Burp Suite</span>
+          <span class="tag">OWASP ZAP</span>
+          <span class="tag">Qualys VM (Foundation)</span>
+          <span class="tag">AI prompt-injection &amp; DLP testing (Garak, Insomnia)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Infrastructure &amp; virtualisation</h3>
+        <div class="tags">
+          <span class="tag">Windows</span>
+          <span class="tag">Linux (Ubuntu)</span>
+          <span class="tag">ESXi</span>
+          <span class="tag">Proxmox</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Other tools</h3>
+        <div class="tags">
+          <span class="tag">JIRA</span>
+          <span class="tag">GLPI</span>
+          <span class="tag">Bugzilla</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <p class="eyebrow">Experience</p>
+      <h2>Professional experience</h2>
+
+      <div class="job">
+        <h3>Cyber Security Analyst — ThIRU Labs Australia</h3>
+        <p class="meta">Melbourne, VIC — Jun 2022 – Present</p>
+        <ul>
+          <li>Supported monitoring, administration and day-to-day operation of SOC security platforms (SIEM, EDR, IDS) in a 24×7 environment, triaging incidents by business impact and risk.</li>
+          <li>Performed Level 1 and Level 2 incident triage, investigating malware infections, phishing attacks, privilege escalation attempts and suspicious endpoint activity.</li>
+          <li>Analysed security telemetry and logs across SIEM, EDR, firewall and vulnerability management platforms to identify Indicators of Compromise (IOCs) and support threat detection.</li>
+          <li>Investigated root cause of security incidents and documented findings, remediation steps and operating procedures for future reference and knowledge sharing.</li>
+          <li>Coordinated containment, eradication and recovery activities for enterprise customer incidents, working closely with infrastructure teams to resolve underlying issues.</li>
+          <li>Contributed to SOC implementation and operational readiness for multiple enterprise customers, including detection engineering support for a smart-city SOC build-out.</li>
+          <li>Configured GLPI ticketing workflows to support incident lifecycle management and documentation for Australian and Indian customers.</li>
+        </ul>
+      </div>
+
+      <h3 style="font-size:16px; color:var(--wire); margin-bottom:var(--space-2);">Earlier career (India), 2008–2016</h3>
+      <table class="earlier-table">
+        <thead>
+          <tr><th scope="col">Role</th><th scope="col">Employer</th><th scope="col">Dates</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Validation Engineer</td><td>Sela Technology Solutions</td><td>Feb 2014 – Feb 2016</td></tr>
+          <tr><td>Software Tester</td><td>Datacore Technologies Pvt. Ltd</td><td>Jun 2013 – Feb 2014</td></tr>
+          <tr><td>Software QA Engineer</td><td>GRRAS Solutions Pvt Ltd</td><td>Dec 2012 – Jun 2013</td></tr>
+          <tr><td>System Administrator</td><td>PCS Technology Pvt. Ltd</td><td>Apr 2010 – Apr 2011</td></tr>
+          <tr><td>Software Engineer</td><td>Compucom Software Ltd</td><td>Oct 2008 – Oct 2009</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">Selected experience</p>
+      <h2>Projects</h2>
+
+      <div class="project">
+        <h3>Lusail Smart City SOC</h3>
+        <dl>
+          <dt>Context</dt><dd>Deployment of enterprise SOC infrastructure for a smart-city customer environment.</dd>
+          <dt>Contribution</dt><dd>Assisted with the deployment and participated in detection engineering and operational readiness activities.</dd>
+        </dl>
+      </div>
+
+      <div class="project">
+        <h3>SME SOC — enterprise SOC implementation</h3>
+        <dl>
+          <dt>Context</dt><dd>SOC implementation and operational readiness for Australian and Indian enterprise customers.</dd>
+          <dt>Contribution</dt><dd>Configured GLPI ticketing workflows to support incident lifecycle management.</dd>
+        </dl>
+      </div>
+
+      <div class="project">
+        <h3>ThIRU MDR/EDR platform — detection &amp; response</h3>
+        <dl>
+          <dt>Contribution</dt><dd>Used ThIRU's MDR/EDR platform and a custom Python-based EDR tool for endpoint alert triage and escalation across customer environments.</dd>
+          <dt>Tools</dt><dd>ThIRU MDR/EDR, custom Python-based EDR, Garak, Insomnia (AI prompt-injection &amp; DLP testing).</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <p class="eyebrow">Education &amp; certifications</p>
+      <h2>Education</h2>
+      <div class="edu-item">
+        <h3>Certificate IV – Cyber Security</h3>
+        <p class="meta">Victoria University (VU)</p>
+      </div>
+      <div class="edu-item">
+        <h3>Bachelor of Engineering – Computers</h3>
+        <p class="meta">University of Rajasthan</p>
+      </div>
+
+      <h2 style="margin-top:var(--space-4);">Certifications &amp; professional development</h2>
+      <ul class="cert-list">
+        <li>Microsoft Cybersecurity Analyst Professional Certificate</li>
+        <li>Certified in Cyber Security (CC) – ISC2</li>
+        <li>Introduction to Cyber Security – Cisco Networking Academy</li>
+        <li>Qualys Vulnerability Management – Foundation</li>
+        <li>Cyber Security Fundamentals – IBM SkillsBuild</li>
+        <li>Cyber Threat Intelligence 101 – arcX Foundation Level</li>
+        <li>Google AI Essentials Specialization</li>
+        <li>AI Skills 4 Women Program – Microsoft</li>
+        <li>Linux Foundation Training</li>
+        <li>ISEA Certified Cyber Hygiene Practitioner</li>
+        <li>Cybersecurity Bootcamp for Women – ICTTF</li>
+        <li>Tangible Uplift Program – Women in Cyber Security Leadership</li>
+        <li>Cyber@ANZ Virtual Experience</li>
+      </ul>
+
+      <h2 style="margin-top:var(--space-4);">Achievements &amp; memberships</h2>
+      <ul class="cert-list" style="columns:1;">
+        <li>Boost Yourself 2022 Cyber Scholarship Award – Top Place</li>
+        <li>Women CyberForce</li>
+        <li>Member, Australian Women in Security Network (AWSN)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="wrap">
+      <p class="eyebrow">Capabilities</p>
+      <h2>Professional capabilities</h2>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <h3>SOC monitoring &amp; triage</h3>
+          <p>24×7 alert triage across SIEM, EDR and IDS platforms, prioritising incidents by business impact and risk.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Incident investigation</h3>
+          <p>Investigating malware, phishing and privilege-escalation incidents through to root cause, with documented remediation steps.</p>
+        </div>
+        <div class="cap-card">
+          <h3>Vulnerability assessment</h3>
+          <p>Running vulnerability scans and web application security testing using OpenVAS, Acunetix, Burp Suite and OWASP ZAP.</p>
+        </div>
+        <div class="cap-card">
+          <h3>AI security testing</h3>
+          <p>Applying prompt-injection and DLP testing tools such as Garak and Insomnia as part of broader security testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:sharma.nivie@gmail.com">sharma.nivie@gmail.com</a></li>
+        <li><span>LinkedIn</span><a href="https://linkedin.com/in/sharmanivie" target="_blank" rel="noopener noreferrer">linkedin.com/in/sharmanivie</a></li>
+        <li><span>Credly</span><a href="https://credly.com/users/nivie" target="_blank" rel="noopener noreferrer">credly.com/users/nivie</a></li>
+      </ul>
+
+      <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+        <div>
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required>
+        </div>
+        <div>
+          <label for="cf-email">Your email</label>
+          <input id="cf-email" name="email" type="email" required>
+        </div>
+        <div>
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-self:start;">Send message</button>
+        <p class="form-note" id="cf-status" role="status">This form is a placeholder. Connect it to a form service (e.g. Formspree) or replace it with a mailto link before publishing.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Nivedita Sharma — Cybersecurity Analyst</p>
+    <div>
+      <a href="https://linkedin.com/in/sharmanivie" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://credly.com/users/nivie" target="_blank" rel="noopener noreferrer">Credly</a>
+      <span>© <span id="year"></span> Nivedita Sharma</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function handleContactSubmit(e){
+    e.preventDefault();
+    var status = document.getElementById('cf-status');
+    status.textContent = 'This is a placeholder form — no message was sent. Replace with a real form handler before publishing.';
+    return false;
+  }
+</script>
+
+</body>
+</html>
